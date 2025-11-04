@@ -1,0 +1,28 @@
+# Data catalog configuration - using local files for development
+input_data:
+  type: kedro_datasets.polars.EagerPolarsDataset
+  file_format: parquet
+  filepath: data/01_raw/input_data.parquet
+
+processed_data:
+  type: kedro_datasets.polars.EagerPolarsDataset
+  file_format: parquet
+  filepath: data/04_feature/processed_data.parquet
+
+# For production S3 usage, uncomment and configure:
+# input_data:
+#   type: kedro_datasets.polars.ParquetDataset
+#   filepath: s3://your-bucket/input/data.parquet
+#   credentials: s3_credentials
+
+# processed_data:
+#   type: kedro_datasets.polars.ParquetDataset
+#   filepath: s3://your-bucket/output/processed_data.parquet
+#   credentials: s3_credentials
+
+# S3 credentials - configure environment variables or use IAM roles in production
+# s3_credentials:
+#   type: kedro_datasets.aws.AWSCredentials
+#   aws_access_key_id: ${oc.decode:${AWS_ACCESS_KEY_ID}}
+#   aws_secret_access_key: ${oc.decode:${AWS_SECRET_ACCESS_KEY}}
+#   aws_region: us-east-1
