@@ -28,4 +28,4 @@ COPY --chown=${KEDRO_UID}:${KEDRO_GID} . .
 EXPOSE 8888
 
 # Dynamic command construction based on environment variables
-CMD ["sh", "-c", "kedro run ${KEDRO_NODE:+--node $KEDRO_NODE} ${KEDRO_PIPELINE:+--pipeline $KEDRO_PIPELINE} --env ${KEDRO_ENV:-production}"]
+CMD ["sh", "-c", "kedro run ${KEDRO_NODE:+--nodes $KEDRO_NODE} ${KEDRO_PIPELINE:+--pipeline $KEDRO_PIPELINE} --env ${KEDRO_ENV:-production}"]
