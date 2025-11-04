@@ -60,6 +60,15 @@ The pipeline is designed to run on AWS ECS through Apache Airflow MWAA using a c
    docker-compose up
    ```
 
+## Resulting Commands
+
+| Environment Variables | Final Command |
+|----------------------|---------------|
+| `KEDRO_NODE=process_data_node` | `kedro run --nodes process_data_node --env production` |
+| `KEDRO_PIPELINE=data_processing` | `kedro run --pipeline data_processing --env production` |
+| `KEDRO_NODE=node1`<br>`KEDRO_PIPELINE=pipeline1` | `kedro run --nodes node1 --pipeline pipeline1 --env production` |
+| None set | `kedro run --env production` |
+
 ### AWS Deployment
 
 1. **Build and push Docker image:**
