@@ -3,7 +3,6 @@
 from typing import Any, Dict, Optional
 
 from airflow.providers.amazon.aws.operators.ecs import EcsRunTaskOperator
-from kedro_airflow.operators.kedro import KedroOperator
 
 
 class KedroEcsRunTaskOperator(EcsRunTaskOperator):
